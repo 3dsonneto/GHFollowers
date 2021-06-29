@@ -8,10 +8,38 @@
 import UIKit
 
 class SearchVC: UIViewController {
+    
+    let logoImageView = UIImageView()
+    let usernameTextField = GFTextField()
+    let callToActionButton = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
 
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemPink
+        view.backgroundColor = .systemBackground //varia junto com dark e light mode
+        configureLogoImageView()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true //sendo implementado no viewWillAppear porque tem que sumir toda vez que voltar na pagina de search(viewDidLoad só roda na primeira vez)
+    }
+    
+    
+    func configureLogoImageView(){
+        view.addSubview(logoImageView) //equivalente a arrastar o elemento da biblioteca do storyboard e jogando na tela
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        logoImageView.image = UIImage(named: "gh-logo")! //stringly typed (escrita errada quebra com facilidade, mesmo sendo apenas uma letra errada. o ideal é criar constants(como o localizable do SB)
+        
+        //Constraints
+        NSLayoutConstraint.activate([
+            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80), //80 pontos da safearea da view no topo
+            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor), //centro da imagem = centro da view
+            logoImageView.heightAnchor.constraint(equalToConstant: 200), //200 pontos de altura
+            logoImageView.widthAnchor.constraint(equalToConstant: 200) //200 pontos de largura
+        ]) //height, width, x e y. Regra não oficial
     }
     
 
