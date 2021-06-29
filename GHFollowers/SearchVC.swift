@@ -19,6 +19,8 @@ class SearchVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground //varia junto com dark e light mode
         configureLogoImageView()
+        configureTextField()
+        configureCallToActionButton()
     }
     
     
@@ -42,7 +44,33 @@ class SearchVC: UIViewController {
         ]) //height, width, x e y. Regra não oficial
     }
     
+    func configureTextField(){
+        view.addSubview(usernameTextField)
+        
+        //Constraints
+        NSLayoutConstraint.activate([
+            usernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),
+            usernameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            usernameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50), //50 pontos pro lado contrario, por isso negativo
+            usernameTextField.heightAnchor.constraint(equalToConstant: 50)
+        ])
+    }
+    
+    
+    func configureCallToActionButton(){
+        view.addSubview(callToActionButton)
+        
+        //Constraints
+        NSLayoutConstraint.activate([
+            callToActionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+            callToActionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            callToActionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            callToActionButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+    }
 
+    
+    
 
 
 }
