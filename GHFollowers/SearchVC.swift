@@ -12,6 +12,9 @@ class SearchVC: UIViewController {
     let logoImageView = UIImageView()
     let usernameTextField = GFTextField()
     let callToActionButton = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
+    
+    var isUserNameEntered: Bool { return !usernameTextField.text!.isEmpty } //propriedade computada, retorna true se o nome foi inputado
+    
 
     // MARK: - Lifecycle
     
@@ -39,6 +42,10 @@ class SearchVC: UIViewController {
     
     
     @objc func pushFollowerListVC(){ //chamado pelo go do teclado ou pelo botao get followers
+        guard isUserNameEntered else { //username foi adicionado? se não print e return se sim segue o codigo
+            print("No username")
+            return
+        }
         let followerListVC      = FollowerListVC()
         followerListVC.username = usernameTextField.text
         followerListVC.title    = usernameTextField.text
