@@ -18,9 +18,11 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground //varia junto com dark e light mode
+        
         configureLogoImageView()
         configureTextField()
         configureCallToActionButton()
+        createDismissKeyboardTapGesture()
     }
     
     
@@ -29,6 +31,22 @@ class SearchVC: UIViewController {
         navigationController?.isNavigationBarHidden = true //sendo implementado no viewWillAppear porque tem que sumir toda vez que voltar na pagina de search(viewDidLoad só roda na primeira vez)
     }
     
+
+    func createDismissKeyboardTapGesture(){
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing)) //selector é o action
+        view.addGestureRecognizer(tap)
+    }
+    
+    
+    @objc func pushFollowerListVC(){ //chamado pelo go do teclado ou pelo botao get followers
+        let followerListVC      = FollowerListVC()
+        followerListVC.username = usernameTextField.text
+        followerListVC.title    = usernameTextField.text
+        navigationController?.pushViewController(followerListVC, animated: true)
+    }
+    
+    // MARK: - UI Configuration
+
     
     func configureLogoImageView(){
         view.addSubview(logoImageView) //equivalente a arrastar o elemento da biblioteca do storyboard e jogando na tela
@@ -44,8 +62,10 @@ class SearchVC: UIViewController {
         ]) //height, width, x e y. Regra não oficial
     }
     
+    
     func configureTextField(){
         view.addSubview(usernameTextField)
+        usernameTextField.delegate = self
         
         //Constraints
         NSLayoutConstraint.activate([
@@ -59,6 +79,7 @@ class SearchVC: UIViewController {
     
     func configureCallToActionButton(){
         view.addSubview(callToActionButton)
+        callToActionButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside) //quando o botao git followers button vai chamar a func pushFollowersListVC
         
         //Constraints
         NSLayoutConstraint.activate([
@@ -69,8 +90,16 @@ class SearchVC: UIViewController {
         ])
     }
 
+
+}
+
+extension SearchVC: UITextFieldDelegate{ //o delegate espera pra ouvir alguem(nesse caso o textfield)
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool { //funciona quando o botao de return(go) é apertado
+        pushFollowerListVC()
+        
+        return true
+    }
     
     
-
-
+    
 }

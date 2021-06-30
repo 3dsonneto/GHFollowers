@@ -21,19 +21,22 @@ class GFTextField: UITextField {
     private func configure(){
         translatesAutoresizingMaskIntoConstraints = false
         
-        layer.cornerRadius = 10
-        layer.borderWidth  = 2
-        layer.borderColor  = UIColor.systemGray4.cgColor
+        layer.cornerRadius          = 10
+        layer.borderWidth           = 2
+        layer.borderColor           = UIColor.systemGray4.cgColor
         
-        textColor     = .label //preto em light mode e branco em dark mode
-        tintColor     = .label
-        textAlignment = .center
-        font          = UIFont.preferredFont(forTextStyle: .title2)
-        adjustsFontSizeToFitWidth = true //fonte diminui a depender da quantidade
+        textColor                   = .label     //preto em light mode e branco em dark mode
+        tintColor                   = .label
+        textAlignment               = .center
+        font                        = UIFont.preferredFont(forTextStyle: .title2)
+        adjustsFontSizeToFitWidth   = true      //fonte diminui a depender da quantidade
         minimumFontSize = 12
         
-        backgroundColor = .tertiarySystemBackground
-        autocorrectionType = .no //sem autocorrect porque é com username
+        backgroundColor             = .tertiarySystemBackground
+        
+        autocorrectionType          = .no       //sem autocorrect porque é com username
+        keyboardType                = .default //tipo de teclado, varia por textfield(numero, senha e etc)
+        returnKeyType               = .go //botao do canto direito geralmente é return, varia por textfield
         
         placeholder = "Enter a username"
     }

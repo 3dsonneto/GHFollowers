@@ -15,6 +15,7 @@
 		2280740A2681628C00EC622C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228074092681628C00EC622C /* SceneDelegate.swift */; };
 		228074112681628E00EC622C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 228074102681628E00EC622C /* Assets.xcassets */; };
 		228074142681628E00EC622C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 228074122681628E00EC622C /* LaunchScreen.storyboard */; };
+		22C9A06A268D382500F741F9 /* FollowerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A069268D382500F741F9 /* FollowerListVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		228074102681628E00EC622C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		228074132681628E00EC622C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		228074152681628E00EC622C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22C9A069268D382500F741F9 /* FollowerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				22156730268A9E9300E9A6D5 /* FavoritesListVC.swift */,
 				225A92D8268BD4F800D1274B /* GFButton.swift */,
 				225A92DC268BDA5100D1274B /* GFTextField.swift */,
+				22C9A069268D382500F741F9 /* FollowerListVC.swift */,
 			);
 			path = GHFollowers;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 				22156731268A9E9300E9A6D5 /* FavoritesListVC.swift in Sources */,
 				225A92D9268BD4F800D1274B /* GFButton.swift in Sources */,
 				2215672F268A9E4900E9A6D5 /* SearchVC.swift in Sources */,
+				22C9A06A268D382500F741F9 /* FollowerListVC.swift in Sources */,
 				228074082681628C00EC622C /* AppDelegate.swift in Sources */,
 				2280740A2681628C00EC622C /* SceneDelegate.swift in Sources */,
 			);
