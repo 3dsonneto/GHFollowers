@@ -16,6 +16,7 @@
 		228074112681628E00EC622C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 228074102681628E00EC622C /* Assets.xcassets */; };
 		228074142681628E00EC622C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 228074122681628E00EC622C /* LaunchScreen.storyboard */; };
 		22B5CA39268E7A1100ED793E /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B5CA38268E7A1100ED793E /* Follower.swift */; };
+		22B5CA3B268E7B7300ED793E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B5CA3A268E7B7300ED793E /* User.swift */; };
 		22C9A06A268D382500F741F9 /* FollowerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A069268D382500F741F9 /* FollowerListVC.swift */; };
 		22C9A06C268D409800F741F9 /* GFTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A06B268D409700F741F9 /* GFTitleLabel.swift */; };
 		22C9A06E268D421A00F741F9 /* GFBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A06D268D421A00F741F9 /* GFBodyLabel.swift */; };
@@ -36,6 +37,7 @@
 		228074132681628E00EC622C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		228074152681628E00EC622C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22B5CA38268E7A1100ED793E /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
+		22B5CA3A268E7B7300ED793E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		22C9A069268D382500F741F9 /* FollowerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListVC.swift; sourceTree = "<group>"; };
 		22C9A06B268D409700F741F9 /* GFTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTitleLabel.swift; sourceTree = "<group>"; };
 		22C9A06D268D421A00F741F9 /* GFBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFBodyLabel.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				22B5CA38268E7A1100ED793E /* Follower.swift */,
+				22B5CA3A268E7B7300ED793E /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				225A92D9268BD4F800D1274B /* GFButton.swift in Sources */,
 				22C9A072268D48F500F741F9 /* UIViewController+Ext.swift in Sources */,
 				2215672F268A9E4900E9A6D5 /* SearchVC.swift in Sources */,
+				22B5CA3B268E7B7300ED793E /* User.swift in Sources */,
 				22C9A070268D42E600F741F9 /* GFAlertVC.swift in Sources */,
 				22B5CA39268E7A1100ED793E /* Follower.swift in Sources */,
 				22C9A06E268D421A00F741F9 /* GFBodyLabel.swift in Sources */,
@@ -356,7 +360,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TQULLH528D;
-				INFOPLIST_FILE = GHFollowers/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GHFollowers/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -375,7 +379,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TQULLH528D;
-				INFOPLIST_FILE = GHFollowers/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GHFollowers/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
