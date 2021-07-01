@@ -17,6 +17,7 @@
 		228074142681628E00EC622C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 228074122681628E00EC622C /* LaunchScreen.storyboard */; };
 		22C9A06A268D382500F741F9 /* FollowerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A069268D382500F741F9 /* FollowerListVC.swift */; };
 		22C9A06C268D409800F741F9 /* GFTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A06B268D409700F741F9 /* GFTitleLabel.swift */; };
+		22C9A06E268D421A00F741F9 /* GFBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A06D268D421A00F741F9 /* GFBodyLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		228074152681628E00EC622C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22C9A069268D382500F741F9 /* FollowerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListVC.swift; sourceTree = "<group>"; };
 		22C9A06B268D409700F741F9 /* GFTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTitleLabel.swift; sourceTree = "<group>"; };
+		22C9A06D268D421A00F741F9 /* GFBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFBodyLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				225A92DC268BDA5100D1274B /* GFTextField.swift */,
 				22C9A069268D382500F741F9 /* FollowerListVC.swift */,
 				22C9A06B268D409700F741F9 /* GFTitleLabel.swift */,
+				22C9A06D268D421A00F741F9 /* GFBodyLabel.swift */,
 			);
 			path = GHFollowers;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 				22156731268A9E9300E9A6D5 /* FavoritesListVC.swift in Sources */,
 				225A92D9268BD4F800D1274B /* GFButton.swift in Sources */,
 				2215672F268A9E4900E9A6D5 /* SearchVC.swift in Sources */,
+				22C9A06E268D421A00F741F9 /* GFBodyLabel.swift in Sources */,
 				22C9A06C268D409800F741F9 /* GFTitleLabel.swift in Sources */,
 				22C9A06A268D382500F741F9 /* FollowerListVC.swift in Sources */,
 				228074082681628C00EC622C /* AppDelegate.swift in Sources */,
