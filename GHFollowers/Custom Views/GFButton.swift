@@ -29,7 +29,7 @@ class GFButton: UIButton {
     
     private func configure(){ //private so pode ser chamado nessa classe
         layer.cornerRadius                         = 10
-        titleLabel?.textColor                      = .white
+        setTitleColor(.white, for: .normal)
         titleLabel?.font                           = UIFont.preferredFont(forTextStyle: .headline) //dynamic type(se o aplicativo usa dynamic type significa que o tamanho da fonte vai                                                           mudar a depender da config do usuario, sem isso não funciona(da pra ver nas configs do iphone))
         translatesAutoresizingMaskIntoConstraints  = false //determina que autolayout vai ser usado
         
