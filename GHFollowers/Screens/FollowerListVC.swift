@@ -14,6 +14,8 @@ class FollowerListVC: UIViewController {
     }
     
     var username: String!
+    var followers: [Follower] = []
+    
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
     override func viewDidLoad() {
@@ -68,7 +70,8 @@ class FollowerListVC: UIViewController {
             
             switch result {
             case .success(let followers):
-                print(followers)
+                self.followers = followers
+                self.updateData()
             
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Bad Stuff Happened", message: error.rawValue, buttonTitle: "Ok") //rawvalue valor do erro no enum
@@ -88,7 +91,11 @@ class FollowerListVC: UIViewController {
     
     
     func updateData(){
+        var snapshop = NSDiffableDataSourceSnapshot<Section, Follower>() //snapshot dos dados antes e depois(faz parte do funcionamento do diffabledatasource)
+        snapshop.appendSections([.main]) //so tem uma section, por isso o array so tem um elemento(main)
+        snapshop.appendItems(followers)
         
+        DispatchQueue.main.async {  self.dataSource.apply(snapshop, animatingDifferences: true) }
     }
 
 }
