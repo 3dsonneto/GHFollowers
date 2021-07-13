@@ -9,14 +9,19 @@ import UIKit
 
 class FollowerListVC: UIViewController {
     
+    enum Section{ //enums são hashable por padrão, que é o que precisamos para o diffabledatasource
+        case main
+    }
+    
     var username: String!
     var collectionView: UICollectionView!
-
+    var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
         configureCollectionView()
         getFollowers()
+        configureDataSource()
         
     }
     
@@ -70,6 +75,20 @@ class FollowerListVC: UIViewController {
             }
     
         }
+    }
+    
+    
+    func configureDataSource(){
+        dataSource = UICollectionViewDiffableDataSource<Section, Follower>(collectionView: collectionView, cellProvider: { collectionView, indexPath, follower in
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.reuseID, for: indexPath) as! FollowerCell
+            cell.set(follower: follower)
+            return cell
+        })
+    }
+    
+    
+    func updateData(){
+        
     }
 
 }
