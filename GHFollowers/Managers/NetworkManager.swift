@@ -5,11 +5,12 @@
 //  Created by Edson Pessoal on 01/07/21.
 //
 
-import Foundation
+import UIKit
 
 class NetworkManager {
-    static let shared   = NetworkManager() //static = todos os networkmanagers vao ter essa variavel
-    let baseURL         = "https://api.github.com/users/"
+    static let shared           = NetworkManager() //static = todos os networkmanagers vao ter essa variavel
+    private let baseURL         = "https://api.github.com/users/"
+    let cache                   = NSCache<NSString, UIImage>()
     
     private init() {} //so pode ter uma instancia, por isso o private init
     
