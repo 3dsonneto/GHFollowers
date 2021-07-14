@@ -41,32 +41,19 @@ class FollowerListVC: UIViewController {
     
     
     func configureCollectionView(){
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createThreeColumnFlowLayout()) //view.bounds preenche a view toda | flow layout é a estilização da collection view
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view)) //view.bounds preenche a view toda | flow layout é a estilização da collection view
         view.addSubview(collectionView)// primeiro inicializa(acima) depois utiliza senão ele vem vazio
-        collectionView.backgroundColor = .systemPink
+        collectionView.backgroundColor = .systemBackground
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
     }
     
     
-    func createThreeColumnFlowLayout() -> UICollectionViewFlowLayout {
-        let width                       = view.bounds.width //largura total da tela
-        let padding: CGFloat            = 12
-        let minimumItemSpacing: CGFloat = 10
-        let availableWidth              = width - (padding * 2) - (minimumItemSpacing * 2)
-        let itemWidth                   = availableWidth / 3
-        
-        let flowLayout                  = UICollectionViewFlowLayout()
-        flowLayout.sectionInset         = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
-        flowLayout.itemSize             = CGSize(width: itemWidth, height: itemWidth + 40) //altura + espaco da label
-        
-        
-        
-        return flowLayout
-    }
+    
 
     
     func getFollowers(){
-        NetworkManager.shared.getFollowers(for: username, page: 1) { result in
+        NetworkManager.shared.getFollowers(for: username, page: 1) { [weak self] result in // o weak self nesse caso vai previnir memory leaks(no caso a referencia a self é weak)
+            guard let self = self else { return }
             
             switch result {
             case .success(let followers):
