@@ -48,9 +48,9 @@ class GFEmptyStateView: UIView {
             
             
             logoImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3), //largura da imagem 1.3 vezes maior que a largura da tela
-            logoImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 1.3),
-            logoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 200), //numero positivo porque ta saindo da tela
-            logoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 140)
+            logoImageView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),
+            logoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 170), //numero positivo porque ta saindo da tela
+            logoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 40)
         ])
     }
 }
