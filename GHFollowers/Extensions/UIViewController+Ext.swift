@@ -52,5 +52,13 @@ extension UIViewController{ //foi criado uma extension porque queremos que todos
         }
 
     }
+    
+    
+    func showEmptyStateView(with message: String, in view: UIView){ //view pra saber onde vai aplicar os constraints e qual view vai adicionar o subview
+        let emptyStateView = GFEmptyStateView(message: message)
+        emptyStateView.frame = view.bounds //preenche a tela toda
+        view.addSubview(emptyStateView)
+        
+    }
         
 }
