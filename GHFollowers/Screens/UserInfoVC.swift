@@ -9,10 +9,13 @@ import UIKit
 
 class UserInfoVC: UIViewController {
     
+    let headerView = UIView()
+    
     var username: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        layoutUI()
 
         view.backgroundColor = .systemBackground
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
@@ -29,6 +32,21 @@ class UserInfoVC: UIViewController {
                 break
             }
         }
+    }
+    
+    
+    func layoutUI(){
+        view.addSubview(headerView)
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        headerView.backgroundColor = .systemPink
+        
+        NSLayoutConstraint.activate([
+            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            headerView.heightAnchor.constraint(equalToConstant: 180)
+        ])
     }
     
     
