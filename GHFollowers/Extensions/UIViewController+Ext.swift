@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 fileprivate var containerView: UIView!   //private = no escopo da classe, fileprivate = tudo nesse arquivo pode usar essa variable | nesse caso é uma variavel global, mas por ser fileprivate só pode ser acessado nesse arquivo
 
@@ -17,6 +18,13 @@ extension UIViewController{ //foi criado uma extension porque queremos que todos
             alertVC.modalTransitionStyle    = .crossDissolve //fade para aparecer e sumir
             self.present(alertVC, animated: true)
         }
+    }
+    
+    
+    func presentSafariVC(with url: URL){
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.preferredControlTintColor = .systemGreen
+        present(safariVC, animated: true)
     }
     
     
