@@ -39,6 +39,7 @@ class GFTextField: UITextField {
         autocorrectionType          = .no       //sem autocorrect porque é com username
         keyboardType                = .default //tipo de teclado, varia por textfield(numero, senha e etc)
         returnKeyType               = .go //botao do canto direito geralmente é return, varia por textfield
+        clearButtonMode             = .whileEditing
         
         placeholder = "Enter a username"
     }

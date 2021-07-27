@@ -12,6 +12,7 @@ class SearchVC: UIViewController {
     let logoImageView = UIImageView()
     let usernameTextField = GFTextField()
     let callToActionButton = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
+    var logoImageViewTopConstraint: NSLayoutConstraint!
     
     var isUserNameEntered: Bool { return !usernameTextField.text!.isEmpty } //propriedade computada, retorna true se o nome foi inputado
     
@@ -31,12 +32,13 @@ class SearchVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        usernameTextField.text = ""
         navigationController?.setNavigationBarHidden(true, animated: true) //sendo implementado no viewWillAppear porque tem que sumir toda vez que voltar na pagina de search(viewDidLoad só roda na primeira vez)
     }
     
 
     func createDismissKeyboardTapGesture(){
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing)) //selector é o action
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing)) //selector é o action
         view.addGestureRecognizer(tap)
     }
     
@@ -46,9 +48,10 @@ class SearchVC: UIViewController {
             presentGFAlertOnMainThread(title: "Empty Username", message: "Please enter a username. We need to know who to look for 😀.", buttonTitle: "Ok")
             return
         }
-        let followerListVC      = FollowerListVC()
-        followerListVC.username = usernameTextField.text
-        followerListVC.title    = usernameTextField.text
+        
+        usernameTextField.resignFirstResponder()
+        
+        let followerListVC      = FollowerListVC(username: usernameTextField.text!)
         navigationController?.pushViewController(followerListVC, animated: true)
     }
     
@@ -58,11 +61,16 @@ class SearchVC: UIViewController {
     func configureLogoImageView(){
         view.addSubview(logoImageView) //equivalente a arrastar o elemento da biblioteca do storyboard e jogando na tela
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        logoImageView.image = UIImage(named: "gh-logo")! //stringly typed (escrita errada quebra com facilidade, mesmo sendo apenas uma letra errada. o ideal é criar constants(como o localizable do SB)
+        logoImageView.image = Images.ghLogo //stringly typed (escrita errada quebra com facilidade, mesmo sendo apenas uma letra errada. o ideal é criar constants(como o localizable do SB)
+        
+        let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8PlusZoomed ? 20 : 80
+        
+        logoImageViewTopConstraint = logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstraintConstant)
+        logoImageViewTopConstraint.isActive = true
         
         //Constraints
         NSLayoutConstraint.activate([
-            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80), //80 pontos da safearea da view no topo
+//            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80), //80 pontos da safearea da view no topo
             logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor), //centro da imagem = centro da view
             logoImageView.heightAnchor.constraint(equalToConstant: 200), //200 pontos de altura
             logoImageView.widthAnchor.constraint(equalToConstant: 200) //200 pontos de largura
