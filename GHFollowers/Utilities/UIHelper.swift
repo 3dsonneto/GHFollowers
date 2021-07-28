@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct UIHelper{
+enum UIHelper{
     
     static func createThreeColumnFlowLayout(in view: UIView) -> UICollectionViewFlowLayout { //static pra na chamada ser UIHelper.createThree...
         let width                       = view.bounds.width //largura total da tela
