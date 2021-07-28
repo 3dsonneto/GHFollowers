@@ -74,7 +74,6 @@ class FollowerListVC: GFDataLoadingVC {
     func configureSearchController(){
         let searchController                    = UISearchController()
         searchController.searchResultsUpdater   = self //toda vez que o resultado de busca ele avisa
-        searchController.searchBar.delegate     = self
         searchController.searchBar.placeholder  = "Search for a username"
         searchController.obscuresBackgroundDuringPresentation = false //tira o tint da view embaixo de quando voce toca na barra de busca
         navigationItem.searchController         = searchController
@@ -181,18 +180,19 @@ extension FollowerListVC: UICollectionViewDelegate{
 }
 
 
-extension FollowerListVC: UISearchResultsUpdating, UISearchBarDelegate{
+extension FollowerListVC: UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
-        guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else {
+            filteredFollowers.removeAll()
+            updateData(on: followers)
+            isSearching = false
+            return
+            
+        }
+        
         isSearching = true
         filteredFollowers = followers.filter { $0.login.lowercased().contains(filter.lowercased()) } //$0 é o item que eu to(o filter percorre o array), aí checa o login minusculo e vê se contem o que tem no filtro e joga pro filteredFollowers que so tem as coias que contem o filtro
         updateData(on: filteredFollowers)
-        
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        isSearching = false
-        updateData(on: followers)
         
     }
     
