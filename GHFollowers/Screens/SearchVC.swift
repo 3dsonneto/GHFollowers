@@ -22,7 +22,7 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground //varia junto com dark e light mode
-        
+        view.addSubviews(logoImageView, usernameTextField, callToActionButton)
         configureLogoImageView()
         configureTextField()
         configureCallToActionButton()
@@ -59,7 +59,6 @@ class SearchVC: UIViewController {
 
     
     func configureLogoImageView(){
-        view.addSubview(logoImageView) //equivalente a arrastar o elemento da biblioteca do storyboard e jogando na tela
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         logoImageView.image = Images.ghLogo //stringly typed (escrita errada quebra com facilidade, mesmo sendo apenas uma letra errada. o ideal é criar constants(como o localizable do SB)
         
@@ -79,7 +78,6 @@ class SearchVC: UIViewController {
     
     
     func configureTextField(){
-        view.addSubview(usernameTextField)
         usernameTextField.delegate = self
         
         //Constraints
@@ -93,7 +91,6 @@ class SearchVC: UIViewController {
     
     
     func configureCallToActionButton(){
-        view.addSubview(callToActionButton)
         callToActionButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside) //quando o botao git followers button vai chamar a func pushFollowersListVC
         
         //Constraints
