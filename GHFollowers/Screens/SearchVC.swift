@@ -12,11 +12,9 @@ class SearchVC: UIViewController {
     let logoImageView = UIImageView()
     let usernameTextField = GFTextField()
     let callToActionButton = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
-    var logoImageViewTopConstraint: NSLayoutConstraint!
     
     var isUserNameEntered: Bool { return !usernameTextField.text!.isEmpty } //propriedade computada, retorna true se o nome foi inputado
     
-
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -29,19 +27,16 @@ class SearchVC: UIViewController {
         createDismissKeyboardTapGesture()
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         usernameTextField.text = ""
         navigationController?.setNavigationBarHidden(true, animated: true) //sendo implementado no viewWillAppear porque tem que sumir toda vez que voltar na pagina de search(viewDidLoad só roda na primeira vez)
     }
     
-
     func createDismissKeyboardTapGesture(){
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing)) //selector é o action
         view.addGestureRecognizer(tap)
     }
-    
     
     @objc func pushFollowerListVC(){ //chamado pelo go do teclado ou pelo botao get followers
         guard isUserNameEntered else { //username foi adicionado? se não print e return se sim segue o codigo
@@ -56,7 +51,6 @@ class SearchVC: UIViewController {
     }
     
     // MARK: - UI Configuration
-
     
     func configureLogoImageView(){
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -64,18 +58,14 @@ class SearchVC: UIViewController {
         
         let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8PlusZoomed ? 20 : 80
         
-        logoImageViewTopConstraint = logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstraintConstant)
-        logoImageViewTopConstraint.isActive = true
-        
         //Constraints
         NSLayoutConstraint.activate([
-//            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80), //80 pontos da safearea da view no topo
+            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstraintConstant),
             logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor), //centro da imagem = centro da view
             logoImageView.heightAnchor.constraint(equalToConstant: 200), //200 pontos de altura
             logoImageView.widthAnchor.constraint(equalToConstant: 200) //200 pontos de largura
         ]) //height, width, x e y. Regra não oficial
     }
-    
     
     func configureTextField(){
         usernameTextField.delegate = self
@@ -89,7 +79,6 @@ class SearchVC: UIViewController {
         ])
     }
     
-    
     func configureCallToActionButton(){
         callToActionButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside) //quando o botao git followers button vai chamar a func pushFollowersListVC
         
@@ -102,7 +91,6 @@ class SearchVC: UIViewController {
         ])
     }
 
-
 }
 
 extension SearchVC: UITextFieldDelegate{ //o delegate espera pra ouvir alguem(nesse caso o textfield)
@@ -111,7 +99,5 @@ extension SearchVC: UITextFieldDelegate{ //o delegate espera pra ouvir alguem(ne
         
         return true
     }
-    
-    
     
 }

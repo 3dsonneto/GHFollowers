@@ -14,7 +14,6 @@ class NetworkManager {
     
     private init() {} //so pode ter uma instancia, por isso o private init
     
-    
     func getFollowers(for username: String, page: Int, completed: @escaping (Result<[Follower], GFError>) -> Void) {     //for username - argument labels, completed(completion handler) - retorna uma lista de followers ou a string de erro(do enum) | Implementando o Result enum ele retorna um case de success(array de followers) e um case de erro(GFError) e ao implementar o completion handler não preciso passar os dois de uma vez, ja que não são mais optionals
         let endpoint = baseURL + "\(username)/followers?per_page=100&page=\(page)"
         

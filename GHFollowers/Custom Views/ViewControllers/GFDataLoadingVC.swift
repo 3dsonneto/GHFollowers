@@ -35,7 +35,6 @@ class GFDataLoadingVC: UIViewController {
         activityIndicator.startAnimating()
     }
     
-    
     func dismissLoadingView(){
         DispatchQueue.main.async {
             self.containerView.removeFromSuperview()
@@ -43,7 +42,6 @@ class GFDataLoadingVC: UIViewController {
         }
 
     }
-    
     
     func showEmptyStateView(with message: String, in view: UIView){ //view pra saber onde vai aplicar os constraints e qual view vai adicionar o subview
         let emptyStateView = GFEmptyStateView(message: message)

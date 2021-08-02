@@ -18,12 +18,10 @@ class GFSecondaryTitleLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     convenience init(fontSize: CGFloat){
         self.init(frame: .zero)
         font = UIFont.systemFont(ofSize: fontSize, weight: .medium)
     }
-    
     
     private func configure(){
         textColor                                  = .secondaryLabel

@@ -20,8 +20,6 @@ enum UIHelper{
         flowLayout.sectionInset         = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
         flowLayout.itemSize             = CGSize(width: itemWidth, height: itemWidth + 40) //altura + espaco da label
         
-        
-        
         return flowLayout
     }
     

@@ -53,7 +53,6 @@ class GFAlertVC: UIViewController {
         ])
     }
     
-    
     func configureTitleLabel(){
         titleLabel.text = alertTitle ?? "Something went wrong"
         
@@ -65,7 +64,6 @@ class GFAlertVC: UIViewController {
         ])
         
     }
-    
     
     func configureActionButton(){
         actionButton.setTitle(buttonTitle ?? "Ok", for: .normal)
@@ -79,7 +77,6 @@ class GFAlertVC: UIViewController {
         ])
     }
     
-    
     func configureMessageLabel(){
         messageLabel.text           = message ?? "Unable to complete request"
         messageLabel.numberOfLines  = 4
@@ -92,10 +89,8 @@ class GFAlertVC: UIViewController {
         ])
     }
     
-    
     @objc func dismissVC(){
         dismiss(animated: true)
     }
-    
     
 }

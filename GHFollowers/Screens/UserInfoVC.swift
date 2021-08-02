@@ -24,17 +24,15 @@ class UserInfoVC: GFDataLoadingVC {
     
     var username: String!
     weak var delegate: UserInfoVCDelegate!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
         configureScrollView()
         layoutUI()
         getUserInfo()
-
         
     }
-    
     
     func configureViewController(){
         view.backgroundColor = .systemBackground
@@ -55,7 +53,6 @@ class UserInfoVC: GFDataLoadingVC {
         
     }
     
-    
     func getUserInfo(){
         NetworkManager.shared.getUserInfo(for: username) { [weak self] result in
             guard let self = self else { return }
@@ -72,7 +69,6 @@ class UserInfoVC: GFDataLoadingVC {
         }
     }
     
-    
     func configureUIElements(with user: User){
         
         let repoItemVC          = GFRepoItemVC(user: user)
@@ -86,7 +82,6 @@ class UserInfoVC: GFDataLoadingVC {
         self.add(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
         self.dateLabel.text = "Github since \(user.createdAt.convertToMonthYearFormat())"
     }
-    
     
     func layoutUI(){
         let padding: CGFloat = 20
@@ -104,7 +99,6 @@ class UserInfoVC: GFDataLoadingVC {
             ])
         }
         
-        
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
             headerView.heightAnchor.constraint(equalToConstant: 210),
@@ -120,7 +114,6 @@ class UserInfoVC: GFDataLoadingVC {
         ])
     }
     
-    
     func add(childVC: UIViewController, to containerView: UIView){
         addChild(childVC)
         containerView.addSubview(childVC.view)
@@ -128,13 +121,11 @@ class UserInfoVC: GFDataLoadingVC {
         childVC.didMove(toParent: self)
     }
     
-    
     @objc func dismissVC(){
         dismiss(animated: true)
     }
-
+    
 }
-
 
 extension UserInfoVC: GFRepoItemVCDelegate{
     
@@ -143,13 +134,10 @@ extension UserInfoVC: GFRepoItemVCDelegate{
             presentGFAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid.", buttonTitle: "Ok")
             return
         }
-
+        
         presentSafariVC(with: url)
     }
-    
-    
 }
-
 
 extension UserInfoVC: GFFollowerItemVCDelegate{
     
@@ -158,10 +146,8 @@ extension UserInfoVC: GFFollowerItemVCDelegate{
             presentGFAlertOnMainThread(title: "No followers", message: "This user have no followers. What a shame 😞.", buttonTitle: "So sad")
             return
         }
-
+        
         delegate.didRequestFollowers(for: user.login)
         dismissVC()
     }
-    
-    
 }

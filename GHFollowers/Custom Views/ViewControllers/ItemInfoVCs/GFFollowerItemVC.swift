@@ -14,13 +14,11 @@ protocol GFFollowerItemVCDelegate: AnyObject {
 class GFFollowerItemVC: GFItemInfoVC {
     
     weak var delegate: GFFollowerItemVCDelegate!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureItems()
     }
-    
     
     private func configureItems(){
         itemInfoViewOne.set(itemInfoType: .followers, with: user.followers)

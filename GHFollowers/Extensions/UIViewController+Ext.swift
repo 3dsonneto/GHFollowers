@@ -8,8 +8,6 @@
 import UIKit
 import SafariServices
 
-
-
 extension UIViewController{ //foi criado uma extension porque queremos que todos os alerts com esse comportamento
     func presentGFAlertOnMainThread(title: String, message: String, buttonTitle: String){ //nao pode chamar elemento do background thread
         DispatchQueue.main.async {
@@ -19,7 +17,6 @@ extension UIViewController{ //foi criado uma extension porque queremos que todos
             self.present(alertVC, animated: true)
         }
     }
-    
     
     func presentSafariVC(with url: URL){
         let safariVC = SFSafariViewController(url: url)
