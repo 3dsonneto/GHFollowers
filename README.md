@@ -16,7 +16,7 @@ Github Followers is a practice project made along Sean Allen on his interview pr
  - Networking
  - View Code
  - Extensions
- - CollectionViews and ListViews
+ - CollectionViews and TableViews
  - Reusable Components
  - Tab bar
 
